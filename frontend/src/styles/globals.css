@@ -1,0 +1,39 @@
+@import "tailwindcss/preflight";
+@import "tailwindcss/utilities";
+
+/* Custom dark theme */
+body {
+  background: #18142a;
+  color: #ece0ff;
+  font-family: 'Inter', 'Segoe UI', sans-serif;
+  min-height: 100vh;
+}
+
+a {
+  color: #c594fa;
+  transition: color 0.15s;
+}
+a:hover {
+  color: #d2a6ff;
+}
+
+::-webkit-scrollbar {
+  width: 8px;
+  background: #201c34;
+}
+::-webkit-scrollbar-thumb {
+  background: #30215e;
+  border-radius: 8px;
+}
+
+input, select, textarea {
+  background: #261c3b;
+  color: #fff;
+  border-radius: 8px;
+  border: none;
+  padding: 0.5rem 1rem;
+  outline: none;
+}
+input:focus, select:focus, textarea:focus {
+  box-shadow: 0 0 0 2px #a259fa;
+}
