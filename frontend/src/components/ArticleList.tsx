@@ -7,7 +7,7 @@ interface Props {
 
 export default function ArticleList({ articles }: Props) {
   return (
-    <div className="flex flex-col gap-7">
+    <div className="flex flex-col gap-8 md:gap-12 w-full">
       {articles.map(article => (
         <ArticleCard key={article.id} article={article} />
       ))}
