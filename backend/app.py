@@ -1,7 +1,8 @@
-from flask import Flask, jsonify
+from app import create_app
+from .auth import auth_bp
 
-app = Flask(__name__)
+app = create_app()
 
-@app.route("/api/health")
-def health():
-    return jsonify({"status": "ok", "message": "API-то работи, Принце!"})
+if __name__ == "__main__":
+    app.register_blueprint(auth_bp)
+    app.run(debug=True)
