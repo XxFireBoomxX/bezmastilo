@@ -8,8 +8,8 @@ export default function Header({
   categories: { id: number; name: string; slug: string }[];
 }) {
   return (
-    <header className="py-6 shadow-lg shadow-[#2b2340]/40 backdrop-blur-sm bg-[#18142a]/80 z-50 sticky top-0">
-      <div className="container mx-auto flex items-center justify-between px-4">
+    <header className="!py-6 shadow-lg shadow-[#2b2340]/40 backdrop-blur-sm bg-[#18142a]/80 z-50 sticky top-0">
+      <div className="container mx-auto flex items-center justify-between !px-6">
         {/* Лого и заглавие */}
         <Link href="/" className="group flex items-center gap-x-2 transition">
           <svg
@@ -31,7 +31,7 @@ export default function Header({
 
         {/* Навигация */}
         <nav>
-          <ul className="flex items-center gap-x-6 md:gap-x-10 text-sm md:text-base text-white">
+          <ul className="flex items-center gap-x-6 md:gap-x-10 text-xl !md:text-base text-white">
             <li>
               <Link
                 href="/"
