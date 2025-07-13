@@ -7,8 +7,15 @@ const nextConfig: NextConfig = {
 
 export default nextConfig;
 
+// next.config.js
 module.exports = {
   images: {
-    domains: ["investor.bg", "www.investor.bg"],
+    remotePatterns: [
+      {
+        protocol: 'https',
+        hostname: '**', // wildcard за всичко (НЕ го ползвай в production)
+      },
+    ],
   },
 };
+

@@ -1,24 +1,69 @@
 @import "tailwindcss";
-@import "tailwindcss/preflight";
-@tailwind utilities;
 
-html, body {
-  background: #18142a;
-  color: #ece0ff;
-  min-height: 100vh;
-  font-family: 'Inter', 'Segoe UI', Arial, sans-serif;
-  scroll-behavior: smooth;
+:root {
+  --background: #18142a;       /* Тъмен фон */
+  --foreground: #ece0ff;       /* Светъл текст */
+  --primary: #a259fa;          /* Основен лилав */
+  --primary-hover: #8a40d1;    /* По-тъмен hover */
+  --accent: #473178;           /* Дълбок лилав */
+  --surface: #231942;          /* Повърхностен фон */
 }
 
-/* a {
-  transition: color 0.2s;
-} */
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-primary: var(--primary);
+  --color-primary-hover: var(--primary-hover);
+  --color-accent: var(--accent);
+  --color-surface: var(--surface);
+  --font-sans: 'Inter', var(--font-geist-sans), 'Segoe UI', Arial, sans-serif;
+}
 
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background: #18142a;
+    --foreground: #ece0ff;
+    --primary: #a259fa;
+    --primary-hover: #8a40d1;
+    --accent: #473178;
+    --surface: #231942;
+  }
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: 'Segoe UI', Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+/* Scrollbar & Animations — остават същите */
 ::-webkit-scrollbar {
   width: 8px;
-  background: #221840;
+  background: var(--surface);
 }
 ::-webkit-scrollbar-thumb {
-  background: #39206d;
+  background: var(--accent);
   border-radius: 8px;
+}
+
+@keyframes gradient-x {
+  0%, 100% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+}
+.animate-gradient-x {
+  background-size: 200% 200%;
+  animation: gradient-x 6s ease infinite;
+}
+@keyframes pulse-soft {
+  0%, 100% { transform: scale(1); opacity: 1; text-shadow: 0 0 10px rgba(255,255,255,0.5); }
+  50% { transform: scale(1.03); opacity: 0.95; text-shadow: 0 0 20px rgba(255,255,255,0.9); }
+}
+.animate-pulse-soft { animation: pulse-soft 3s ease-in-out infinite; }
+.drop-shadow-glow {
+  text-shadow:
+    0 0 5px rgba(255,255,255,0.3),
+    0 0 10px rgba(255,255,255,0.4),
+    0 0 20px rgba(255,105,180,0.6);
 }

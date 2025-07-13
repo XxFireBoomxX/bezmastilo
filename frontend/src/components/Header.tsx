@@ -1,15 +1,14 @@
 import Link from "next/link";
 import SearchBar from "./SearchBar";
 import CategoryMenu from "./CategoryMenu";
+import { useCategories } from "@/context/CategoriesContext"; // ЕТО ГО!
 
-export default function Header({
-  categories,
-}: {
-  categories: { id: number; name: string; slug: string }[];
-}) {
+export default function Header() {
+  const categories = useCategories(); // <-- готово ruler fetch-ване!
+
   return (
-    <header className="!py-6 shadow-lg shadow-[#2b2340]/40 backdrop-blur-sm bg-[#18142a]/80 z-50 sticky top-0">
-      <div className="container mx-auto flex items-center justify-between !px-6">
+    <header className="py-6 shadow-lg shadow-[#2b2340]/40 backdrop-blur-sm bg-[#18142a]/80 z-50 sticky top-0">
+      <div className="container mx-auto flex items-center justify-between px-6">
         {/* Лого и заглавие */}
         <Link href="/" className="group flex items-center gap-x-2 transition">
           <svg
@@ -31,7 +30,7 @@ export default function Header({
 
         {/* Навигация */}
         <nav>
-          <ul className="flex items-center gap-x-6 md:gap-x-10 text-xl !md:text-base text-white">
+          <ul className="flex items-center gap-x-6 md:gap-x-10 text-xl md:text-base text-white">
             <li>
               <Link
                 href="/"
@@ -56,7 +55,7 @@ export default function Header({
                 href="/about"
                 className="relative transition duration-200 hover:text-pink-400 before:absolute before:inset-x-0 before:-bottom-1 before:h-0.5 before:bg-pink-400 before:scale-x-0 hover:before:scale-x-100 before:transition-transform before:origin-left"
               >
-                За нас
+                За мен
               </Link>
             </li>
             <li>
